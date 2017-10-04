@@ -40,13 +40,11 @@ export default class TodoEdit extends React.Component {
 	render() {
 		return (<div>
 					<MuiThemeProvider>	
-						<TextField rows="2" multiLine="true" value={this.state.elem.value} onChange={this.handleChange}/>			
-					</MuiThemeProvider>		
-					<MuiThemeProvider>	
-						<RaisedButton onClick={this.cancel} label="Cancel" />			
-					</MuiThemeProvider>
-					<MuiThemeProvider>	
-						<RaisedButton onClick={this.save} label="Save" />			
+						<div>
+							<TextField rows={2} fullWidth={true} multiLine={true} value={this.state.elem.value} onChange={this.handleChange}/>							
+							<RaisedButton onClick={this.cancel} label="Cancel" />							
+							<RaisedButton onClick={this.save}  disabled={!this.state.elem.value} label="Save" />								
+						</div>
 					</MuiThemeProvider>
 				</div>);
 	}

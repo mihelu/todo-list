@@ -16,7 +16,7 @@ export default class Todo extends React.Component {
 	render() {
 		return (<li>
 					<MuiThemeProvider>
-					  <Card>
+					  <Card >
 					    <CardHeader
 					      title={"NR:." + this.props.elem.id}
 					      actAsExpander={false}
@@ -30,7 +30,7 @@ export default class Todo extends React.Component {
 					      <FlatButton onClick={this.edit} label="Edit" />
 					    </CardActions>
 					  </Card>
-					  </MuiThemeProvider>					
+					</MuiThemeProvider>					
 				</li>);
 	}
 }

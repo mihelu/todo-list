@@ -26,10 +26,10 @@ export default class TodoAdd extends React.Component {
 		return (
 			<div>
 				<MuiThemeProvider>	
-					<TextField id="addArea" rows={2} multiLine={true} value={this.state.text} onChange={this.handleChange}/>			
-				</MuiThemeProvider>		
-				<MuiThemeProvider>	
-					<RaisedButton onClick={this.add} label="Add" />			
+					<div>
+						<TextField id="addArea" fullWidth={true} rows={2} multiLine={true} value={this.state.text} onChange={this.handleChange}/>							
+						<RaisedButton onClick={this.add} disabled={!this.state.text} label="Add" />			
+					</div>
 				</MuiThemeProvider>
 			</div>	
 			);
