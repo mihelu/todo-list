@@ -1,6 +1,6 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import Card, {  CardHeader, CardActions, CardContent } from 'material-ui/Card';
+import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 
 export default class TodoAdd extends React.Component {
@@ -15,23 +15,21 @@ export default class TodoAdd extends React.Component {
 
 	add = e => {
 		this.props.addAction(this.state.text)
-		this.setState((state,props) => {
-			return {
-				text : ''
-			}
-		})
+		this.setState({text : ''})
 	}
 
 	render() {
-		return (
-			<div>
-				<MuiThemeProvider>	
-					<div>
-						<TextField id="addArea" fullWidth={true} rows={2} multiLine={true} value={this.state.text} onChange={this.handleChange}/>							
-						<RaisedButton onClick={this.add} disabled={!this.state.text} label="Add" />			
-					</div>
-				</MuiThemeProvider>
-			</div>	
+		return (<Card>
+					<CardHeader>					      	
+						
+				    </CardHeader>
+					<CardContent>
+						<TextField id="addArea" fullWidth rowsMax={5} multiline value={this.state.text} onChange={this.handleChange}/>	
+					</CardContent>
+				    <CardActions>
+				    	<Button raised color="primary" onClick={this.add} disabled={!this.state.text}>Add</Button>			
+				    </CardActions>												
+				</Card>	
 			);
 	}
 }

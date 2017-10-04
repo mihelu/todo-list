@@ -1,7 +1,9 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import Card, {  CardHeader, CardActions, CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import EditIcon from 'material-ui-icons/Edit';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 export default class Todo extends React.Component {
 
@@ -14,23 +16,23 @@ export default class Todo extends React.Component {
 	}
 
 	render() {
-		return (<li>
-					<MuiThemeProvider>
+		return (<li>					
 					  <Card >
-					    <CardHeader
-					      title={"NR:." + this.props.elem.id}
-					      actAsExpander={false}
-					      showExpandableButton={false}
-					    />	
-					    <CardText expandable={false}>
-					     	{this.props.elem.value}
-					    </CardText>
+					    <CardHeader title={"NR:." + this.props.elem.id}/>	
+					    <CardContent>	
+					    	<Typography type="title" color="inherit">					   
+					     		{this.props.elem.value}
+					     	</Typography>
+					    </CardContent>
 					    <CardActions>
-					      <FlatButton  onClick={this.remove} label="Remove" />
-					      <FlatButton onClick={this.edit} label="Edit" />
+					    	<IconButton aria-label="Edit" onClick={this.edit}>
+				              <EditIcon />
+				            </IconButton>
+				            <IconButton aria-label="Share" onClick={this.remove}>
+				              <DeleteIcon />
+				            </IconButton>
 					    </CardActions>
-					  </Card>
-					</MuiThemeProvider>					
+					  </Card>									
 				</li>);
 	}
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import Card, { CardHeader, CardActions, CardContent} from 'material-ui/Card';
+import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 
 export default class TodoEdit extends React.Component {
@@ -38,14 +38,19 @@ export default class TodoEdit extends React.Component {
 	}
 	
 	render() {
-		return (<div>
-					<MuiThemeProvider>	
-						<div>
-							<TextField rows={2} fullWidth={true} multiLine={true} value={this.state.elem.value} onChange={this.handleChange}/>							
-							<RaisedButton onClick={this.cancel} label="Cancel" />							
-							<RaisedButton onClick={this.save}  disabled={!this.state.elem.value} label="Save" />								
-						</div>
-					</MuiThemeProvider>
-				</div>);
+		return (						
+			<Card >
+				<CardHeader>					      	
+					
+			    </CardHeader>
+				<CardContent>
+					<TextField rowsMax={5} fullWidth={true} multiline={true} value={this.state.elem.value} onChange={this.handleChange}/>	
+				</CardContent>
+		    	<CardActions>						
+					<Button raised color="accent" onClick={this.cancel}>Cancel</Button>							
+					<Button raised color="primary" onClick={this.save}  disabled={!this.state.elem.value}>Save</Button>
+				</CardActions>												
+			</Card>
+			);
 	}
 }
