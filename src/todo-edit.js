@@ -36,6 +36,7 @@ export default class TodoEdit extends React.Component {
 	
 	render() {
 		return (<div>
+					Edit todo
 					<textarea value={this.state.elem.value} onChange={this.handleChange}></textarea>
 					<button onClick={this.cancel}>Cancel</button>
 					<button onClick={this.save}>Save</button>

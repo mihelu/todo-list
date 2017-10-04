@@ -1,4 +1,7 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 export default class TodoAdd extends React.Component {
 
@@ -21,9 +24,14 @@ export default class TodoAdd extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<textarea value={this.state.text} onChange={this.handleChange}></textarea>
-				<button onClick={this.add}>Add</button>
+			<div>								
+				Add todo
+				<MuiThemeProvider>	
+					<TextField rows="2" multiLine="true" value={this.state.text} onChange={this.handleChange}/>			
+				</MuiThemeProvider>		
+				<MuiThemeProvider>	
+					<RaisedButton onClick={this.add} label="Add" />			
+				</MuiThemeProvider>
 			</div>	
 			);
 	}

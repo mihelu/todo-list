@@ -6,6 +6,7 @@ import TodoEdit from './todo-edit';
 export default class TodoList extends React.Component {	
 
 	state = {
+			idSeq: 3,
 			elements : [{id: 1,
 					   value:'Test'},
 					  {id: 2,
@@ -16,10 +17,11 @@ export default class TodoList extends React.Component {
 	add = text => {
 		this.setState((state,props) => {	
 	  		 	state.elements.push({
-				  					id: new Date().getTime(),
+				  					id: state.idSeq,
 				  					value: text
 			  					});		  	
 	  		 	return {
+	  		 		idSeq: state.idSeq++,
 	  				elements: state.elements
 	  			}
 	  		})
@@ -68,7 +70,7 @@ export default class TodoList extends React.Component {
 		const rows = this.state.elements.map((todo) => 
 			<Todo removeAction={this.remove} editAction={this.edit} key={todo.id} elem={todo} />		
 		);
-		return (<div>
+		return (<div>		
 					{this.state.isEdit ? 
 						(<TodoEdit updateAction={this.update} cancelAction={this.cancel} elem={this.state.editTodo} />) 
 						: (<TodoAdd addAction={this.add} />) }			
