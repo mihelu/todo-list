@@ -1,4 +1,7 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 export default class TodoEdit extends React.Component {
 
@@ -36,10 +39,15 @@ export default class TodoEdit extends React.Component {
 	
 	render() {
 		return (<div>
-					Edit todo
-					<textarea value={this.state.elem.value} onChange={this.handleChange}></textarea>
-					<button onClick={this.cancel}>Cancel</button>
-					<button onClick={this.save}>Save</button>
+					<MuiThemeProvider>	
+						<TextField rows="2" multiLine="true" value={this.state.elem.value} onChange={this.handleChange}/>			
+					</MuiThemeProvider>		
+					<MuiThemeProvider>	
+						<RaisedButton onClick={this.cancel} label="Cancel" />			
+					</MuiThemeProvider>
+					<MuiThemeProvider>	
+						<RaisedButton onClick={this.save} label="Save" />			
+					</MuiThemeProvider>
 				</div>);
 	}
 }
